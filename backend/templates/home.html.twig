@@ -1,0 +1,25 @@
+<html>
+<body>
+
+Welcome page !
+<br>
+
+{{"now"|date('d/m/Y')}}
+
+{% if is_granted('IS_AUTHENTICATED_FULLY')  %}
+    <h1>HELLO YOU DAMN COOKIE</h1>
+    <br>
+
+    
+    <a href={{path('tickets')}}>tickets !</a>
+
+    <a href={{path('logout')}} >log out</a>
+
+{% else %}
+    <h1>would you like to log in?</h1>
+    <a href={{path('login')}} >log in</a>
+{% endif %}
+
+<br>
+</body>
+</html>

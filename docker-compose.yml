@@ -3,19 +3,17 @@ name: s6trible
 services:
   s6trible_DB:
     image: mariadb:10.6
-    container_name: s6trible_DB
     restart: always
     ports: 
       - 3306:3306
     volumes: 
       - ./db/:/var/lib/mysql
-    env_file:
-      - ./.env
-      MYSQL_DATABASE=$MYSQL_DATABASE
-      MYSQL_USER=$MYSQL_USER
-      MYSQL_PASSWORD=$MYSQL_PASSWORD
-      MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+    environment:
+      MYSQL_DATABASE: $MYSQL_DATABASE 
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
 
-  
+
 
 
